@@ -7,7 +7,7 @@ const morgan = require('morgan');
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 require('dotenv').config();
-const PORT = process.env.HTTP_PORT;
+const PORT = process.env.HTTP_PORT || 3009;
 
 // middlewares
 app.use(morgan('combined'));

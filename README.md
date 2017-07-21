@@ -1,5 +1,7 @@
 ### Real Time Web App using Socket.io
 
+Copy `.env.sample` to `.env`
+
 ```
 // install packages
 npm install
