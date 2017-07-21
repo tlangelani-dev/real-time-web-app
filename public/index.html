@@ -6,22 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Real Time Web App</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
     <div class="container">
-        <h1>Real Time Web App</h1>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque nesciunt saepe natus. Distinctio eum possimus doloribus minima autem, reiciendis tenetur sapiente, ex aut rem quia hic ab, saepe facere iusto.
-        </p>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h1>Real Time Web App</h1>
+                <div class="form-group">
+                    <label class="sr-only" for="message-input">Message</label>
+                    <input type="text" class="form-control" id="message-input" name="message-input" placeholder="Message...">
+                </div>
+                <div id="messages"></div>
+            </div>
+        </div>
     </div>
     <script src="/socket.io/socket.io.js"></script>
-    <script>
-        'use strict';
-        const socket = io();
-        socket.emit('spree', {
-            categories: ['Men', 'Women', 'Kids']
-        });
-        socket.on('serverGreetings', () => console.log('Server just sent greetings!'));
-    </script>
+    <script src="/js/app.js"></script>
 </body>
 </html>

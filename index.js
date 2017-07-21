@@ -14,10 +14,8 @@ app.use(morgan('combined'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 io.on('connection', socket => {
-    console.log('A socket is connected!');
-    socket.on('spree', data => {
-        console.log(data);
-        socket.emit('serverGreetings');
+    socket.on('new message', message => {
+        socket.broadcast.emit('new message', message);
     });
 });
 
