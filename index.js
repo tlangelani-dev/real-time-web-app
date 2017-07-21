@@ -1,8 +1,16 @@
+'use strict';
+
 const express = require('express');
+const morgan = require('morgan');
 const app = express();
-const PORT = 3009;
+require('dotenv').config();
+const PORT = process.env.HTTP_PORT;
+
+// middlewares
+app.use(morgan('combined'));
 
 app.get('/', (req, res) => {
+    console.log(req, res);
     res.send('Listing Categories!');
 });
 
