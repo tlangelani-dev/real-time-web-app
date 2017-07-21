@@ -14,5 +14,14 @@
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque nesciunt saepe natus. Distinctio eum possimus doloribus minima autem, reiciendis tenetur sapiente, ex aut rem quia hic ab, saepe facere iusto.
         </p>
     </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        'use strict';
+        const socket = io();
+        socket.emit('spree', {
+            categories: ['Men', 'Women', 'Kids']
+        });
+        socket.on('serverGreetings', () => console.log('Server just sent greetings!'));
+    </script>
 </body>
 </html>

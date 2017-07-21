@@ -13,6 +13,14 @@ const PORT = process.env.HTTP_PORT;
 app.use(morgan('combined'));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.listen(PORT, () => {
+io.on('connection', socket => {
+    console.log('A socket is connected!');
+    socket.on('spree', data => {
+        console.log(data);
+        socket.emit('serverGreetings');
+    });
+});
+
+server.listen(PORT, () => {
     console.log(`Express server running on port ${PORT}`);
 });
